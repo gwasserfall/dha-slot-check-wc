@@ -1,0 +1,21 @@
+name: Check for DHA Slots
+
+on:
+  schedule:
+      - cron:  '32,01 5-17 * * *'
+  workflow_dispatch:
+
+jobs:  
+  check_slots_capetown:
+    runs-on: self-hosted
+    steps:
+      - run: echo "Checking available slots in Cape Town Office"
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Run Python script
+        env: # Or as an environment variable
+          PUSH_GUID: ${{ secrets.PUSH_GUID }}
+        run: |
+          cd ${{ github.workspace }}
+          python3 check.py
+      
