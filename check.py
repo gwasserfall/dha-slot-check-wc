@@ -38,5 +38,4 @@ if len(payload) > 2:
     requests.get(f"""https://push.techulus.com/api/v1/notify/{push_hash}?title=Slots Available!&body=Quickly reserve a slot for Capetown!!""")
 
 else:
-    requests.get(f"""https://push.techulus.com/api/v1/notify/{push_hash}?title=Test!&body=Big test""")
     print(f"{datetime.now()} : No slots...")
